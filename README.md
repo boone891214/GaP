@@ -1,2 +1,2 @@
-# MEST: Accurate and Fast Memory-Economic Sparse Training Framework on the Edge
+# Effective Model Sparsification by Scheduled Grow-and-Prune Methods
 Code is preparing for release.
