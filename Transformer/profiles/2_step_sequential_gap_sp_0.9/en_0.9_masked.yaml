@@ -1,0 +1,81 @@
+prune_ratios:
+  encoder.layers.0.self_attn.in_proj_weight_q: 0.9
+  encoder.layers.0.self_attn.in_proj_weight_k: 0.9
+  encoder.layers.0.self_attn.in_proj_weight_v: 0.9
+  encoder.layers.0.self_attn.out_proj.weight: 0.9
+  encoder.layers.0.fc1.weight: 0.9
+  encoder.layers.0.fc2.weight: 0.9
+  encoder.layers.1.self_attn.in_proj_weight_q: 0.9
+  encoder.layers.1.self_attn.in_proj_weight_k: 0.9
+  encoder.layers.1.self_attn.in_proj_weight_v: 0.9
+  encoder.layers.1.self_attn.out_proj.weight: 0.9
+  encoder.layers.1.fc1.weight: 0.9
+  encoder.layers.1.fc2.weight: 0.9
+  encoder.layers.2.self_attn.in_proj_weight_q: 0.9
+  encoder.layers.2.self_attn.in_proj_weight_k: 0.9
+  encoder.layers.2.self_attn.in_proj_weight_v: 0.9
+  encoder.layers.2.self_attn.out_proj.weight: 0.9
+  encoder.layers.2.fc1.weight: 0.9
+  encoder.layers.2.fc2.weight: 0.9
+  encoder.layers.3.self_attn.in_proj_weight_q: 0.9
+  encoder.layers.3.self_attn.in_proj_weight_k: 0.9
+  encoder.layers.3.self_attn.in_proj_weight_v: 0.9
+  encoder.layers.3.self_attn.out_proj.weight: 0.9
+  encoder.layers.3.fc1.weight: 0.9
+  encoder.layers.3.fc2.weight: 0.9
+  encoder.layers.4.self_attn.in_proj_weight_q: 0.9
+  encoder.layers.4.self_attn.in_proj_weight_k: 0.9
+  encoder.layers.4.self_attn.in_proj_weight_v: 0.9
+  encoder.layers.4.self_attn.out_proj.weight: 0.9
+  encoder.layers.4.fc1.weight: 0.9
+  encoder.layers.4.fc2.weight: 0.9
+  encoder.layers.5.self_attn.in_proj_weight_q: 0.9
+  encoder.layers.5.self_attn.in_proj_weight_k: 0.9
+  encoder.layers.5.self_attn.in_proj_weight_v: 0.9
+  encoder.layers.5.self_attn.out_proj.weight: 0.9
+  encoder.layers.5.fc1.weight: 0.9
+  encoder.layers.5.fc2.weight: 0.9
+
+rho:
+  0.001
+
+masked_layers:
+  encoder.layers.0.self_attn.in_proj_weight_q
+  encoder.layers.0.self_attn.in_proj_weight_k
+  encoder.layers.0.self_attn.in_proj_weight_v
+  encoder.layers.0.self_attn.out_proj.weight
+  encoder.layers.0.fc1.weight
+  encoder.layers.0.fc2.weight
+  encoder.layers.1.self_attn.in_proj_weight_q
+  encoder.layers.1.self_attn.in_proj_weight_k
+  encoder.layers.1.self_attn.in_proj_weight_v
+  encoder.layers.1.self_attn.out_proj.weight
+  encoder.layers.1.fc1.weight
+  encoder.layers.1.fc2.weight
+  encoder.layers.2.self_attn.in_proj_weight_q
+  encoder.layers.2.self_attn.in_proj_weight_k
+  encoder.layers.2.self_attn.in_proj_weight_v
+  encoder.layers.2.self_attn.out_proj.weight
+  encoder.layers.2.fc1.weight
+  encoder.layers.2.fc2.weight
+  encoder.layers.3.self_attn.in_proj_weight_q
+  encoder.layers.3.self_attn.in_proj_weight_k
+  encoder.layers.3.self_attn.in_proj_weight_v
+  encoder.layers.3.self_attn.out_proj.weight
+  encoder.layers.3.fc1.weight
+  encoder.layers.3.fc2.weight
+  encoder.layers.4.self_attn.in_proj_weight_q
+  encoder.layers.4.self_attn.in_proj_weight_k
+  encoder.layers.4.self_attn.in_proj_weight_v
+  encoder.layers.4.self_attn.out_proj.weight
+  encoder.layers.4.fc1.weight
+  encoder.layers.4.fc2.weight
+  encoder.layers.5.self_attn.in_proj_weight_q
+  encoder.layers.5.self_attn.in_proj_weight_k
+  encoder.layers.5.self_attn.in_proj_weight_v
+  encoder.layers.5.self_attn.out_proj.weight
+  encoder.layers.5.fc1.weight
+  encoder.layers.5.fc2.weight
+
+# fixed_layers:
+#   encoder.embed_tokens.weight
