@@ -1,8 +1,10 @@
 # RigL-PyTorch with NVIDIA codebase
 
-An open source implementation of Google Research's paper: [Rigging the Lottery: Making All Tickets Winners](https://proceedings.mlr.press/v119/evci20a/evci20a.pdf) (RigL) in PyTorch with the [NVIDIA deep learning example codebase](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets). 
+An open source implementation of Google Research's paper: [Rigging the Lottery: Making All Tickets Winners](https://proceedings.mlr.press/v119/evci20a/evci20a.pdf) (RigL) in PyTorch with the [NVIDIA deep learning example codebase](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets), which is fast and has better overall performance.
 
-This codebase is also used to reproduce the RigL results in the ICLR 2022 paper "[Effective Model Sparsification by Scheduled Grow-and-Prune Methods](https://openreview.net/pdf?id=xa6otUDdP2W)".
+The dynamic sparse training code is based on [this repo](https://github.com/nollied/rigl-torch), thanks to [nollied](https://github.com/nollied).
+
+This codebase is also used to reproduce the RigL results in the ICLR 2022 paper "[Effective Model Sparsification by Scheduled Grow-and-Prune Methods](https://openreview.net/pdf?id=xa6otUDdP2W)". The reported accuracy is also shown in the table below.
 
 
 ## Requirements
