@@ -1,4 +1,4 @@
-# RigL-PyTorch
+# RigL-PyTorch with NVIDIA codebase
 
 An open source implementation of Google Research's paper: [Rigging the Lottery: Making All Tickets Winners](https://proceedings.mlr.press/v119/evci20a/evci20a.pdf) (RigL) in PyTorch with the [NVIDIA deep learning example codebase](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets). 
 
