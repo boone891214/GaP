@@ -1,54 +1,70 @@
-# Effective Model Sparsification by Scheduled Grow-and-Prune Methods
-ICLR 2022 paper "[Effective Model Sparsification by Scheduled Grow-and-Prune Methods](https://openreview.net/pdf?id=xa6otUDdP2W)". [Model](https://drive.google.com/drive/folders/1-bY4Bbu1zF5Y7VzPZYBaZyyG3QQ9glTz?usp=sharing) and test [code](https://drive.google.com/drive/folders/103t6gqmqB2_LoMrj-9-DVllLDzUxtOu0?usp=sharing) are available for downloading.
+# RigL-PyTorch
 
-Please see an example of GaP with Transformer.
+An open source implementation of Google Research's paper: [Rigging the Lottery: Making All Tickets Winners](https://proceedings.mlr.press/v119/evci20a/evci20a.pdf) (RigL) in PyTorch with the [NVIDIA deep learning example codebase](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets). 
+
+This codebase is also used to reproduce the RigL results in the ICLR 2022 paper "[Effective Model Sparsification by Scheduled Grow-and-Prune Methods](https://openreview.net/pdf?id=xa6otUDdP2W)".
 
 
-## Computer Vision
+## Requirements
 
-Model [Download](https://drive.google.com/drive/folders/12WFSp9rmcfFZL7JWucHU6g7IEbLJoi19?usp=sharing)
+For easy implementation, we suggest to use [nvidia-docker](https://github.com/NVIDIA/nvidia-docker) with CUDA-11 for the training environments.
+We have pre-built the ready-to-run nvidia-docker image [here](https://drive.google.com/file/d/1kEXD8ZHXEoHIMSpAFKaKZh2SExoWHONy/view?usp=sharing).
 
-| Models  | Method | Partition | Sparsity Ratio | Sparsity Distribution | Top-1 Accuracy |
+- Load pre-built docker images (download or build): 
+  
+    `docker load -i nvidia_rn50.tar`
+
+
+- Rename the docker image: 
+  
+    `docker image tag 4c5875fdd48859f69015c7ec7183e5d2e706ffe7dabcad177e39e041673dba82 nvidia_rn50:latest`
+
+
+- Start nvidia-docker interactive session: 
+  
+    `nvidia-docker run --rm -it -v /path/to/your/imagenet/:/data/imagenet -v /path/to/your/project:/workspace/rn50 --ipc=host nvidia_rn50`
+
+
+
+## ImageNet-1k results
+
+### `Sparsity ratio 0.8`
+
+| Models  | Method | Epoch | Sparsity Ratio | Sparsity Distribution | Top-1 Accuracy |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| ResNet-50 | S-GaP | 4 | 0.8 | Uniform | 77.856% |
-| ResNet-50 | S-GaP | 4 | 0.8 | Non-uniform | 78.132% |
-| ResNet-50 | P-GaP | 4 | 0.8 | Uniform | 77.492% |
-| ResNet-50 | S-GaP | 4 | 0.9 | Uniform | 76.348% |
-| ResNet-50 | S-GaP | 4 | 0.9 | Non-uniform | 77.896% |
-| ResNet-50 | P-GaP | 4 | 0.9 | Uniform | 76.128% |
+| ResNet-50 | RigL | 100 | 0.8 | Uniform | 74.6% |
+| ResNet-50 | RigL | 100 | 0.8 | ERK | 75.4% |
+| ResNet-50 | RigL | 500 | 0.8 | Uniform | 76.9% |
+| ResNet-50 | RigL | 500 | 0.8 | ERK | 77.4% |
+| ResNet-50 | RigL | 1200 | 0.8 | Uniform | 77.1% |
+| ResNet-50 | RigL | 1200 | 0.8 | ERK | 77.4% |
 
+### `Sparsity ratio 0.9`
 
-## Machine Translation (WMT-14 EN-DE) 
-
-Model [Download](https://drive.google.com/drive/folders/1do0GrxPwg9ghRaYXLQ7LxKpX4hqD0_jh?usp=sharing)
-
-| Models  | Method | Partition | Sparsity Ratio | Sparsity Distribution | BLEU Score |
+| Models  | Method | Epoch | Sparsity Ratio | Sparsity Distribution | Top-1 Accuracy |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Transformer | S-GaP | 3 | 0.8 | Uniform | 27.59 |
-| Transformer | S-GaP | 6 | 0.8 | Uniform | 27.65 |
-| Transformer | P-GaP | 3 | 0.8 | Uniform | 27.93 |
-| Transformer | P-GaP | 6 | 0.8 | Uniform | 27.67 |
-| Transformer | S-GaP | 3 | 0.9 | Uniform | 27.72 |
-| Transformer | S-GaP | 6 | 0.9 | Uniform | 27.06 |
-| Transformer | P-GaP | 3 | 0.9 | Uniform | 27.31 |
-| Transformer | P-GaP | 6 | 0.9 | Uniform | 26.88 |
+| ResNet-50 | RigL | 100 | 0.9 | Uniform | 72.5% |
+| ResNet-50 | RigL | 100 | 0.9 | ERK | 73.9% |
+| ResNet-50 | RigL | 500 | 0.9 | Uniform | 75.6% |
+| ResNet-50 | RigL | 500 | 0.9 | ERK | 76.3% |
+| ResNet-50 | RigL | 1200 | 0.9 | Uniform | 76.0% |
+| ResNet-50 | RigL | 1200 | 0.9 | ERK | 76.8% |
 
-
-## 3D Object Part Segmentation with PointNet++ on ShapeNet
-
-Model [Download](https://drive.google.com/drive/folders/1UyMBbUoihLmd1yfjVB6O9rHqgS1akzZ4?usp=sharing)
-
-## Object Detection (SSD on COCO-2017) 
-
-Model [Download](https://drive.google.com/drive/folders/1L9VQnSKQ2n58gWpwja3zy_ac3KMVv_BW?usp=sharing)
-
-## Citation
-if you find this repo is helpful, please cite
+### References
 ```
+@inproceedings{evci2020rigging,
+  title={Rigging the lottery: Making all tickets winners},
+  author={Evci, Utku and Gale, Trevor and Menick, Jacob and Castro, Pablo Samuel and Elsen, Erich},
+  booktitle={International Conference on Machine Learning (ICML)},
+  pages={2943--2952},
+  year={2020},
+  organization={PMLR}
+}
+
 @inproceedings{ma2022effective,
     title={Effective Model Sparsification by Scheduled Grow-and-Prune Methods},
     author={Xiaolong Ma and Minghai Qin and Fei Sun and Zejiang Hou and Kun Yuan and Yi Xu and Yanzhi Wang and Yen-Kuang Chen and Rong Jin and Yuan Xie},
-    booktitle={International Conference on Learning Representations},
+    booktitle={International Conference on Learning Representations (ICLR)},
     year={2022},
     url={https://openreview.net/forum?id=xa6otUDdP2W}
 }
